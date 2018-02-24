@@ -46,6 +46,21 @@ public class ExcelUtil {
 
             cell = row.createCell(2);
             cell.setCellValue(coffeeShop.getTag());
+
+            cell = row.createCell(3);
+            cell.setCellValue(coffeeShop.getConsume());
+
+            cell = row.createCell(4);
+            cell.setCellValue(coffeeShop.getComment());
+
+            cell = row.createCell(5);
+            cell.setCellValue(coffeeShop.getTaste());
+
+            cell = row.createCell(6);
+            cell.setCellValue(coffeeShop.getEnvironment());
+
+            cell = row.createCell(7);
+            cell.setCellValue(coffeeShop.getService());
         }
         try {
             workbook.write(fileOutputStream);
