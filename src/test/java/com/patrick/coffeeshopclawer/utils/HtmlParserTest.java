@@ -13,5 +13,4 @@ public class HtmlParserTest {
         HtmlParser htmlParser = new HtmlParser();
         System.out.println(htmlParser.parseWebPage("http://www.dianping.com/beijing/ch10/g132"));
     }
-
 } 

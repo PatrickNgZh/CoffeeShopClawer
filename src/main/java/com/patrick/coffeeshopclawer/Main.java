@@ -24,7 +24,7 @@ public class Main implements Clawer {
     private static List<CoffeeShop> coffeeShops = new Vector<>();
     private static final Integer MAX_THREADS = 20;
     private static final String BASE_URL = "http://www.dianping.com/beijing/ch10/g132";
-    private static BufferedWriter bufferedWriter;
+    private static BufferedWriter bufferedWriter=null;
 
     static {
         try {

@@ -13,7 +13,9 @@ public class MainTest {
     public void testSave() throws Exception {
         Main main = new Main();
         for (int i = 0; i < 3; i++) {
-            main.save(new CoffeeShop("This is a test","test"));
+            main.save(new CoffeeShop("This is a test","test","test",
+                    "test","test","test",
+                    "test","test"));
         }
     }
 
