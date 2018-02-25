@@ -24,6 +24,6 @@ public interface Clawer {
 
     void run();
 
-    void save(CoffeeShop coffeeShop);
+    void save(List<CoffeeShop> coffeeShops);
 
 }

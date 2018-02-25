@@ -2,6 +2,7 @@ package com.patrick.coffeeshopclawer;
 
 import com.patrick.coffeeshopclawer.pojo.CoffeeShop;
 import com.patrick.coffeeshopclawer.pojo.WebPage;
+import com.patrick.coffeeshopclawer.utils.ExcelUtil;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -24,15 +25,16 @@ public class Main implements Clawer {
     private static List<CoffeeShop> coffeeShops = new Vector<>();
     private static final Integer MAX_THREADS = 20;
     private static final String BASE_URL = "http://www.dianping.com/beijing/ch10/g132";
-    private static BufferedWriter bufferedWriter=null;
+    //    private static BufferedWriter bufferedWriter=null;
+    private static final ExcelUtil excelUtil = new ExcelUtil();
 
-    static {
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter("data.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    static {
+//        try {
+//            bufferedWriter = new BufferedWriter(new FileWriter("data.txt"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     @Override
@@ -85,17 +87,18 @@ public class Main implements Clawer {
     }
 
     @Override
-    public void save(CoffeeShop coffeeShop) {
-        try {
-            bufferedWriter.write(coffeeShop.getName());
-            bufferedWriter.newLine();
-            bufferedWriter.write(coffeeShop.getAddress());
-            bufferedWriter.newLine();
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void save(List<CoffeeShop> coffeeShops) {
+//        try {
+//            bufferedWriter.write(coffeeShop.getName());
+//            bufferedWriter.newLine();
+//            bufferedWriter.write(coffeeShop.getAddress());
+//            bufferedWriter.newLine();
+//            bufferedWriter.newLine();
+//            bufferedWriter.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        excelUtil.exportExcel(coffeeShops);
     }
 
     public static void main(String[] args) {
@@ -106,14 +109,7 @@ public class Main implements Clawer {
         clawer.addToClawerList();
         clawer.run();
         System.out.println(coffeeShops.size()+" items");
-        for (CoffeeShop coffeeShop : coffeeShops) {
-            clawer.save(coffeeShop);
-        }
-        try {
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        clawer.save(coffeeShops);
         System.out.println("Total spent time is "
                 + (new Date().getTime() - startTime.getTime()) + " ms");
     }

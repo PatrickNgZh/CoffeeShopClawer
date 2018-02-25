@@ -12,8 +12,9 @@ import java.io.IOException;
 public class HtmlFetcher {
 
     public String fetch(String url) throws IOException {
-        Connection.Response response = Jsoup.connect(url).timeout(3000).header("User-Agent","Mozilla/5.0" +
-                " (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36").execute();
+        Connection.Response response = Jsoup.connect(url).timeout(10000).header("User-Agent","Mozilla/5.0" +
+                " (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko")
+                .execute();
         return response.statusCode() / 100 == 2 ? response.body() : null;
     }
 
