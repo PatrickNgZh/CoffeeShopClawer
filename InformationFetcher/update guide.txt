@@ -1,0 +1,3 @@
+Okhttp还可以继续封装
+多线程改造parser
+封装count Information
